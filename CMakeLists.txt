@@ -1,5 +1,8 @@
-install(DIRECTORY model   DESTINATION ${CNOID_SHARE_SUBDIR})
-install(DIRECTORY project DESTINATION ${CNOID_SHARE_SUBDIR})
+cmake_minimum_required(VERSION 3.1)
+project(vnoid)
 
-add_subdirectory(src)
-add_subdirectory(controller)
+find_package(PkgConfig)
+pkg_check_modules(OPENHRP3_1 REQUIRED openhrp3.1)
+message("- OPENHRP3_1_PREFIX: ${OPENHRP3_1_PREFIX}")
+
+install(DIRECTORY model DESTINATION ${OPENHRP3_1_PREFIX}/share/OpenHRP-3.1/sample)
